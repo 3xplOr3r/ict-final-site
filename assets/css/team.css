@@ -1465,6 +1465,8 @@ ul{
     overflow: hidden;
     z-index: 1;
     position: relative;
+    object-fit: cover;
+    object-position: center;
   }
   
   .testimonial .pic img {
