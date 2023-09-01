@@ -21,3 +21,15 @@ const cLinks = document.querySelectorAll('.clink');
         cLinks.forEach(link => {
             link.addEventListener('click', scrollToTable);
         });
+
+
+
+        const sr = new ScrollReveal ({
+            distance: '40px',
+            duration: '1500',
+            reset: false
+        
+        })
+        
+        sr.reveal('.table1' , {delay: 100 , origin: 'right'});
+        sr.reveal('.table2' , {delay: 100 , origin: 'left'});
