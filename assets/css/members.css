@@ -1578,3 +1578,22 @@ ul{
 .high-txt svg {
     opacity: 40%;
 }
+
+@media (max-width:560px) {
+    .high-txt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .high-txt svg {
+        display: flex;
+        width: auto;
+        margin-left: 69px;
+    }
+
+    .high-txt .txt {
+        margin-left: -222px;
+    }
+}
