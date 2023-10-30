@@ -116,7 +116,7 @@ var swiper = new Swiper(".mySwiper", {
                 return;
             }
             repeater();
-        }, 5000);
+        },5000);
     }
     repeater();
   }
