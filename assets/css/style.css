@@ -1540,8 +1540,16 @@ ul{
 }
 
 #l {
-    height: 80px;
-    width: 80px;
+    height: 120px;
+    width: 120px;
+}
+
+.l-txt {
+    color: white;
+    position: absolute;
+    top: 70%;
+    font-weight: 400;
+    animation: reveal 1.7s infinite;
 }
 
 img {
@@ -1600,5 +1608,17 @@ img {
     }
     100% {
         transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
