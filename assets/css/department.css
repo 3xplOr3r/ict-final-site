@@ -1644,7 +1644,7 @@ ul{
 
     .img-bx {
         width: 90%;
-        height: auto;
+        height: 400px;
         margin-bottom: -100px;
         z-index: 1;
     }
