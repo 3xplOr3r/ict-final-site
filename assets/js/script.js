@@ -1,3 +1,14 @@
+// LOADER FUNCTION 
+
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loaderf');
+    loader.style.display = "block";
+
+    this.setTimeout( function() {
+        loader.style.display = "none";
+    }, 5000);
+});
+
 //RESPONSIVE COUNTER.
 
 var a = 0;
@@ -59,7 +70,8 @@ var swiper = new Swiper(".mySwiper", {
 
   // for hero section 
 
-  var slides = document.querySelectorAll(".slide");
+  window.onload = function() {
+    var slides = document.querySelectorAll(".slide");
   var btns = document.querySelectorAll(".sl-btn");
 
   let currentSlide = 1;
@@ -121,3 +133,5 @@ var swiper = new Swiper(".mySwiper", {
     repeater();
   }
   Repeat();
+
+  }
