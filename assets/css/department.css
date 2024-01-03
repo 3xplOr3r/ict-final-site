@@ -51,6 +51,7 @@ body{
     font-family: 'poppins' , sans-serif;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background: #c9c9c9;
 }
 
 body::-webkit-scrollbar {
