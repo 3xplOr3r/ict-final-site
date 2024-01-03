@@ -13,6 +13,7 @@ body{
     font-family: 'poppins' , sans-serif;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background-color: rgb(204, 204, 204);
 }
 
 body::-webkit-scrollbar {
@@ -49,13 +50,11 @@ header{
 
 .logo-container{
     display: flex;
-    max-width: 100px;
+    align-items: center;
 }
 
 .logo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 25%;
 }
 
 
@@ -340,7 +339,7 @@ header{
 }
 
 .img-slider {
-    width: 1280px;
+    width: 100%;
     height: 90vh;
     margin: 0 auto;
     position: relative;
@@ -530,13 +529,13 @@ header{
 .testimonial-Bx {
     position: relative;
     width: 100%;
-    /* padding: 40px;
-    padding-top: 40px; */
+    padding: 40px;
+    padding-top: 40px;
     color: #999;
 }
 
 .testimonial-Bx img {
-    border-radius: 10px;
+    border-radius: 50%;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -601,28 +600,187 @@ header{
 
     /* TESTIMOIAL SECTIION ENDS  */
 
-    /* Link & Accreditation */
+    /* RANKINGS */
 
-.link{
-   text-align: center;
-    margin-bottom: 65px;
-}
-.link h1{
-    color: #215;
-    font-size: 50px;
-    font-weight: 700;
-    text-shadow: 1px 3px 5px;
-    margin-bottom: 40px;
-    font-family: 'Poppins', sans-serif;
-}
-.link .image{
-    width: 60%;
-    height: 200px;
-    background-image: url(../../img/link.png);
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+    .rankings {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 5rem;
+    }
+
+    .ranks {
+        width: 70%;
+        height: auto;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .rank-card {
+        padding: 40px 20px;
+        /* background-color: #000; */
+        width: auto;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .rank-card:nth-child(1) {
+        margin-top: 80px;
+    }
+
+    .rank-card:nth-child(3) {
+        margin-top: 80px;
+    }
+
+    .rank-card .rank-imgx{
+        border:8px solid #3c2a97;
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        position: relative;
+    }
+
+    .rank-card .rank-imgy{
+        border:8px solid #3c2a97;
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        position: relative;
+    }
+
+    .rank-card .rank-imgz{
+        border:8px solid #3c2a97;
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        position: relative;
+    }
+
+    .rank-card .rank-imgx img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    .rank-card .rank-imgy img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    .rank-card .rank-imgz img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    .medalz {
+        width: 120px;
+        height: 120px;
+        /* background-color: rgb(204, 204, 204); */
+        border-radius: 100%;
+        position: absolute;
+        left: 20%;
+        top: 10%;
+    }
+
+    .medalzz {
+        width: 130px;
+        height: 130px;
+        border-radius: 100%;
+        position: absolute;
+        left: 20%;
+        top: 10%;
+    }
+
+    .rank-name h5 {
+        text-align: center;
+        font-family: "Rubik" , sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #242323;
+    }
+
+    .rank-stats {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .rank-stats .col-1 {
+        width: 100%;
+        height: auto;
+    }
+
+    .rank-stats .col-2 {
+        width: 100%;
+        height: auto;
+    }
+
+    .rank-stats p {
+        font-size: 12px;
+        font-weight: 500;
+        font-family: "Poppins" , sans-serif;
+        color: #272727;
+    }
+
+    .rank-table {
+        width: 70%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .rank-table-data {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        backdrop-filter: blur(7px);
+        box-shadow: 0 6px 12px #0005;
+    }
+
+    table , th , td {
+        padding: 1rem;
+    }
+
+    td img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+
+    #sessionFilter {
+        width: 120px;
+        height: 40px;
+        appearance: none;
+        border: 0;
+        outline: 0;
+        background: #3c2a97;
+        border-radius: 5px;
+        padding: 10px 20px;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: none;
+    }
+
+
+    /* RANKINGS */
 
 /*  CSS FOR FOOTER */
 
@@ -1629,4 +1787,53 @@ img {
     100% {
         opacity: 0;
     }
+}
+
+@media (max-width: 500px) {
+
+    .ranks {
+        width: 95%;
+        height: auto;
+        display: flex;
+        margin: 10px 10px;
+        gap: 0;
+    }
+
+    .rank-table {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    table {
+        width: 420px;
+        padding: 0;
+        margin: 0;
+    }
+
+    table thead tr {
+        display: none;
+    }
+    table tr td {
+        padding: .6rem;
+    }
+    table tr {
+        display: block;
+    }
+    table th,tr {
+        padding: .5rem;
+    }
+    table td {
+        display: block;
+        text-align: right;
+    }
+    table td::before {
+        content: attr(data-title) ": ";
+        float: left;
+    }
+    tbody tr:nth-child(even) {
+        background-color: #22165c;
+        color: #fff;
+    }
+
 }

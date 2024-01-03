@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 require('../includes/conn.php');
 
@@ -24,7 +28,7 @@ if (isset($_POST['submit'])) {
                 header('Location: ' . SEC_URL . 'dashboard.php');
                 exit();
             } else {
-                $_SESSION['signin'] = "Password is wrong";
+                $_SESSION['signin'] = "Wrong Credentials";
                 header('Location: ' . SEC_URL . 'signin.php');
                 exit();
             }

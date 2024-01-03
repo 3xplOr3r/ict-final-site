@@ -6,7 +6,7 @@ window.addEventListener('load', function() {
 
     this.setTimeout( function() {
         loader.style.display = "none";
-    }, 5000);
+    },);
 });
 
 //RESPONSIVE COUNTER.
@@ -135,3 +135,78 @@ var swiper = new Swiper(".mySwiper", {
   Repeat();
 
   }
+
+//   Ranking Table
+
+function sortAndNumberRows() {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.querySelector('.rank-table-data');
+    switching = true;
+  
+    while (switching) {
+      switching = false;
+      rows = table.rows;
+  
+      for (i = 1; i < (rows.length - 1); i++) {
+        shouldSwitch = false;
+  
+        x = parseFloat(rows[i].getElementsByTagName('td')[4].innerHTML);
+        y = parseFloat(rows[i + 1].getElementsByTagName('td')[4].innerHTML);
+  
+        if (x < y) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+  
+      if (shouldSwitch) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  
+    for (i = 1; i < rows.length; i++) {
+      rows[i].getElementsByTagName('td')[0].innerHTML = i +".";
+    }
+  }
+  
+  sortAndNumberRows();
+
+
+// Function to display top 3 students in reverse order for rank-cards
+function displayTop3ReverseForRankCards() {
+    // Get all rows in the table except the header row
+    const rows = document.querySelectorAll('.rank-table-data tbody tr');
+    const rowsArray = Array.from(rows);
+  
+    // Sort the rows based on CGPA in descending order
+    rowsArray.sort((a, b) => {
+      const cgpaA = parseFloat(a.getElementsByTagName('td')[4].innerText);
+      const cgpaB = parseFloat(b.getElementsByTagName('td')[4].innerText);
+      return cgpaB - cgpaA; // Descending order
+    });
+  
+    // Display top 3 students in the specific reverse order for rank-cards
+    const rankCards = document.querySelectorAll('.rank-card');
+    rankCards[0].querySelector('img').src = rowsArray[1].getElementsByTagName('td')[1].querySelector('img').src;
+    rankCards[0].querySelector('h5').innerText = rowsArray[1].getElementsByTagName('td')[2].innerText;
+    rankCards[0].querySelector('.col-2 p:nth-child(1)').innerText = rowsArray[1].getElementsByTagName('td')[3].innerText;
+    rankCards[0].querySelector('.col-2 p:nth-child(2)').innerText = rowsArray[1].getElementsByTagName('td')[4].innerText;
+    rankCards[0].querySelector('.col-2 p:nth-child(3)').innerText = rowsArray[1].getElementsByTagName('td')[5].innerText;
+  
+    rankCards[1].querySelector('img').src = rowsArray[0].getElementsByTagName('td')[1].querySelector('img').src;
+    rankCards[1].querySelector('h5').innerText = rowsArray[0].getElementsByTagName('td')[2].innerText;
+    rankCards[1].querySelector('.col-2 p:nth-child(1)').innerText = rowsArray[0].getElementsByTagName('td')[3].innerText;
+    rankCards[1].querySelector('.col-2 p:nth-child(2)').innerText = rowsArray[0].getElementsByTagName('td')[4].innerText;
+    rankCards[1].querySelector('.col-2 p:nth-child(3)').innerText = rowsArray[0].getElementsByTagName('td')[5].innerText;
+  
+    rankCards[2].querySelector('img').src = rowsArray[2].getElementsByTagName('td')[1].querySelector('img').src;
+    rankCards[2].querySelector('h5').innerText = rowsArray[2].getElementsByTagName('td')[2].innerText;
+    rankCards[2].querySelector('.col-2 p:nth-child(1)').innerText = rowsArray[2].getElementsByTagName('td')[3].innerText;
+    rankCards[2].querySelector('.col-2 p:nth-child(2)').innerText = rowsArray[2].getElementsByTagName('td')[4].innerText;
+    rankCards[2].querySelector('.col-2 p:nth-child(3)').innerText = rowsArray[2].getElementsByTagName('td')[5].innerText;
+  }
+  
+  // Call the function to display top 3 students in reverse order for rank-cards
+  displayTop3ReverseForRankCards();
+  

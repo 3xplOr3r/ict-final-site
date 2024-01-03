@@ -1461,6 +1461,7 @@ ul{
     width: 60%;
     max-height: 420px;
     border-radius: var(--card-border-radius-1);
+    overflow: hidden;
 }
 
 .img-bx img {
@@ -1523,7 +1524,7 @@ ul{
 .dept-details > a > i {
     color: white;
     font-size: 25px;
-    top: -20%;
+    top: -25%;
     left: 60%;
     transform: translate(50%,50%);
     position: absolute;
@@ -1579,6 +1580,7 @@ ul{
         max-width: 450px;
         width: 100%;
         height: auto;
+        max-height: 320px;
         margin-bottom: -100px;
     }
 
