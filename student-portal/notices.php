@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     include('headertwo.php');
 

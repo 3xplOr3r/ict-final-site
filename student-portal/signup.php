@@ -42,6 +42,9 @@
                 <form action="<?= SEC_URL ?>signup-logic.php" enctype="multipart/form-data" method="post">
                     <input type="text" name="firstname" value="<?= $firstname ?>" placeholder="First name">
                     <input type="text" name="lastname" value="<?= $lastname ?>" placeholder="Last name">
+                    <input type="number" name="roll" value="<?= $rollnmbr ?>" placeholder="Roll number">
+                    <input type="text" name="department" value="<?= $department ?>" placeholder="Department name">
+                    <input type="text" name="semester" value="<?= $semester ?>" placeholder="semester (ex: 5th,6th,7th)">
                     <input type="email" name="email" value="<?= $email ?>" placeholder="Enter your email">
                     <input type="password" name="password" placeholder="Create Passowrd">
                     <input type="password" name="con_password" placeholder="Confirm password">

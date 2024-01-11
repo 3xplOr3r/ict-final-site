@@ -8,6 +8,9 @@
     if(isset($_POST['submit'])) {
         $firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $rollnmbr = filter_var($_POST['roll'], FILTER_SANITIZE_NUMBER_INT);
+        $deparment = filter_var($_POST['department'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $semester = filter_var($_POST['semester'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $password = filter_var($_POST['password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $con_password = filter_var($_POST['con_password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -18,6 +21,12 @@
             $_SESSION ['signup'] = "Please enter your firstname";
         } elseif (!$lastname) {
             $_SESSION ['signup'] = "Please enter your lastname";
+        } elseif (!$rollnmbr) {
+            $_SESSION ['signup'] = "Please enter your roll number";
+        } elseif (!$deparment) {
+            $_SESSION ['signup'] = "Please enter your department name";
+        } elseif (!$semester) {
+            $_SESSION ['signup'] = "Please enter your semester";
         } elseif (!$email) {
             $_SESSION ['signup'] = "Please enter a valid email address";
         } elseif (strlen($password) < 8 || strlen($con_password) < 8) {
@@ -63,8 +72,8 @@
             header('location:' . SEC_URL . 'signup.php');
             die();
         } else {
-            $statement = $conn->prepare("INSERT INTO students (firstname, lastname , email, pass, avatar) VALUES (?,?,?,?,?)");
-            $statement->bind_param('sssss', $firstname , $lastname , $email , $hashed_password , $avatar_name);
+            $statement = $conn->prepare("INSERT INTO students (firstname, lastname, roll, department, semester, email, pass, avatar) VALUES (?,?,?,?,?)");
+            $statement->bind_param('sssss', $firstname , $lastname , $rollnmbr , $deparment , $semester , $email , $hashed_password , $avatar_name);
             $statement->execute();
 
             if(!mysqli_error($conn)) {

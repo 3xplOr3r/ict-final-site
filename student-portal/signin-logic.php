@@ -25,6 +25,7 @@ if (isset($_POST['submit'])) {
 
             if (password_verify($std_pass, $db_pass)) {
                 $_SESSION['std-id'] = $row['id'];
+                $_SESSION['is_logged_in'] = true;
                 header('Location: ' . SEC_URL . 'dashboard.php');
                 exit();
             } else {

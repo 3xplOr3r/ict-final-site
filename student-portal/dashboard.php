@@ -1,15 +1,14 @@
-<?php
-    session_start();
+<?php 
 
-    if (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == true) {
-        header('Location: ' . SEC_URL . 'dashboard.php');
+    include('headertwo.php');
+
+    if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
+        header('Location: signin.php');
         exit();
-    } else {
-        header('Location: ' . SEC_URL . 'signin.php');
-        exit();
-    }    
+    }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
