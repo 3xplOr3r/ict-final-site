@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./internal_assets/css/attendance.css" />
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
@@ -142,24 +143,24 @@
         <label>Department: </label>
         <select name="department" id="department" required>
             <option disabled selected>Select Department</option>
-            <option>Civil</option>
-            <option>Computer</option>
-            <option>Textile</option>
-            <option>Electric</option>
+            <option value="civil">Civil</option>
+            <option value="computer">Computer</option>
+            <option value="textile">Textile</option>
+            <option value="electric">Electric</option>
         </select>
     </div>
 
     <div class="input-field">
         <label>Semester: </label>
-        <select name="semester" id="semester" required>
+        <select name="semester" id="semester" onchange="populateSubjects()" required>
             <option disabled selected>Select Semester</option>
-            <option>1st</option>
-            <option>2nd</option>
-            <option>3rd</option>
-            <option>4th</option>
-            <option>5th</option>
-            <option>6th</option>
-            <option>7th</option>
+            <option value="1st">1st</option>
+            <option value="2nd">2nd</option>
+            <option value="3rd">3rd</option>
+            <option value="4th">4th</option>
+            <option value="5th">5th</option>
+            <option value="6th">6th</option>
+            <option value="7th">7th</option>
         </select>
     </div>
 
@@ -167,9 +168,6 @@
         <label>Subjects</label>
         <select name="subjects" id="subjects" required>
             <option disabled selected>Select Subject</option>
-            <option>Math</option>
-            <option>English</option>
-            <option>Programing</option>
         </select>
     </div>
 
@@ -177,7 +175,9 @@
 
     </div>
 
-    <div id="report"></div>
+    <div id="report">
+      
+    </div>
 
     </main>
 

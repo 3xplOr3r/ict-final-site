@@ -72,8 +72,8 @@
             header('location:' . SEC_URL . 'signup.php');
             die();
         } else {
-            $statement = $conn->prepare("INSERT INTO students (firstname, lastname, roll, department, semester, email, pass, avatar) VALUES (?,?,?,?,?)");
-            $statement->bind_param('sssss', $firstname , $lastname , $rollnmbr , $deparment , $semester , $email , $hashed_password , $avatar_name);
+            $statement = $conn->prepare("INSERT INTO students (firstname, lastname, roll, department, semester, email, pass, avatar) VALUES (?,?,?,?,?,?,?,?)");
+            $statement->bind_param('ssisssss', $firstname , $lastname , $rollnmbr , $deparment , $semester , $email , $hashed_password , $avatar_name);
             $statement->execute();
 
             if(!mysqli_error($conn)) {

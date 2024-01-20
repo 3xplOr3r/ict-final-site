@@ -189,6 +189,7 @@
     border: none;
     padding: 0 15px;
     height: 42px;
+    max-width: 220px;
     margin: 8px 0;
     cursor: pointer;
 }
