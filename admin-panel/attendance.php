@@ -171,7 +171,7 @@
         </select>
     </div>
 
-    <a class="callback_report" href="#">Get Report</a>
+    <a class="callback_report" href="./attendance-logic.php">Get Report</a>
 
     </div>
 

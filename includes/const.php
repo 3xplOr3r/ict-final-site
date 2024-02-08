@@ -1,7 +1,7 @@
 <?php
 
-define ('ROOT_URL', 'http://localhost/file/homepage/');
-define ('SEC_URL', 'http://localhost/file/homepage/student-portal/');
+define ('ROOT_URL', 'http://localhost/ictt/ict-final-site/');
+define ('SEC_URL', 'http://localhost/ictt/ict-final-site/student-portal/');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
