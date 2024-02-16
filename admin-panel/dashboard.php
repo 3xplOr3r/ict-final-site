@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="view-students.html"><i class="uil uil-users-alt"></i>
+                        <a href="view-students.php"><i class="uil uil-users-alt"></i>
                             <h5>Students</h5>
                         </a>
                     </li>
@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"><i class="uil uil-book-open"></i>
+                        <a href="./attendance.php"><i class="uil uil-book-open"></i>
                             <h5>Attendance</h5>
                         </a>
                     </li>

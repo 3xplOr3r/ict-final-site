@@ -1,38 +1,134 @@
-<?php 
-
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-    include("../includes/conn.php");
-// FETCH STUDENTS
-
-    $department = isset($_GET['department']) ? $_GET['department'] : '';
-    $semester = isset($_GET['semester']) ? $_GET['semester'] : '';
-    $subject = isset($_GET['subject']) ? $_GET['subject'] : '';
-
-    $stmt = $conn->prepare("SELECT * FROM students WHERE department = ? AND semester = ?");
-    $stmt->bind_param('ss', $depatment, $semester);
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-    $studentData = array();
-
-    if($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-
-            $studentData[] = array(
-                'student_roll' => $row['roll'],
-                'first_name' => $row['firstname'],
-                'last_name' => $row['lastname'],
-            );
-
+(function(H) {
+    H.seriesTypes.pie.prototype.animate = function(init) {
+      const series = this,
+        chart = series.chart,
+        points = series.points,
+        {
+          animation
+        } = series.options,
+        {
+          startAngleRad
+        } = series;
+  
+      function fanAnimate(point, startAngleRad) {
+        const graphic = point.graphic,
+          args = point.shapeArgs;
+  
+        if (graphic && args) {
+  
+          graphic
+            // Set inital animation values
+            .attr({
+              start: startAngleRad,
+              end: startAngleRad,
+              opacity: 1
+            })
+            // Animate to the final position
+            .animate({
+              start: args.start,
+              end: args.end
+            }, {
+              duration: animation.duration / points.length
+            }, function() {
+              // On complete, start animating the next point
+              if (points[point.index + 1]) {
+                fanAnimate(points[point.index + 1], args.end);
+              }
+              // On the last point, fade in the data labels, then
+              // apply the inner size
+              if (point.index === series.points.length - 1) {
+                series.dataLabelsGroup.animate({
+                    opacity: 1
+                  },
+                  void 0,
+                  function() {
+                    points.forEach(point => {
+                      point.opacity = 1;
+                    });
+                    series.update({
+                      enableMouseTracking: true
+                    }, false);
+                    chart.update({
+                      plotOptions: {
+                        pie: {
+                          innerSize: '40%',
+                          borderRadius: 8
+                        }
+                      }
+                    });
+                  });
+              }
+            });
         }
+      }
+  
+      if (init) {
+        // Hide points on init
+        points.forEach(point => {
+          point.opacity = 0;
+        });
+      } else {
+        fanAnimate(points[0], startAngleRad);
+      }
     };
-    echo json_encode($studentData);
-// GENERATE REPORT 
+  }(Highcharts));
+  
+  Highcharts.chart('container', {
+    chart: {
+      type: 'pie'
+    },
+    title: {
+      text: 'Departamental Strength of the Company',
+      align: 'left'
+    },
+    subtitle: {
+      text: 'Custom animation of pie series',
+      align: 'left'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+      point: {
+        valueSuffix: '%'
+      }
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        borderWidth: 2,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b><br>{point.percentage}%',
+          distance: 20
+        }
+      }
+    },
+    series: [{
+      // Disable mouse tracking on load, enable after custom animation
+      enableMouseTracking: false,
+      animation: {
+        duration: 2000
+      },
+      colorByPoint: true,
+      data: [{
+        name: 'Customer Support',
+        y: 21.3
+      }, {
+        name: 'Development',
+        y: 18.7
+      }, {
+        name: 'Sales',
+        y: 20.2
+      }, {
+        name: 'Marketing',
+        y: 14.2
+      }, {
+        name: 'Other',
+        y: 25.6
+      }]
+    }]
+  });
+  
 
-// $firstDay = date("1-m-Y");
-// $totalDay = date("t", strtotime($firstDay));
-
-
-
-?>

@@ -10,6 +10,17 @@ CREATE TABLE topperlist (
     PRIMARY KEY (id)
 )
 
+CREATE TABLE attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_number INT,
+    date DATE,
+    status VARCHAR(1),
+    FOREIGN KEY (roll_number) REFERENCES students(roll) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE INDEX idx_roll_number ON attendance (roll_number);
+
+
 <!DOCTYPE html>
 <html>
 <head>

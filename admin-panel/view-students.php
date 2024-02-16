@@ -1,3 +1,21 @@
+<?php 
+    include('../includes/conn.php');
+
+    $stmt = $conn->prepare('SELECT * FROM students');
+    $stmt->execute();
+    
+    $st_res = $stmt->get_result();
+    while ($student = $st_res->fetch_assoc()) {
+        $id = $student['id'];
+        $avatar = $student['avatar'];
+        $name = $student['firstname'] . $student['lastname'];
+        $roll = $student['roll'];
+        $semester = $student['semester'];
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,21 +41,19 @@
                             <th>Avatar</th>
                             <th>Name</th>
                             <th>Roll</th>
-                            <th>Reg number</th>
+                            <th>Semester</th>
                             <th>profile</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>01</td>
+                            <td> <?= $id ?></td>
                             <td>
-                                <div>
-                                    <img src="../img/maska.jpg" alt="user_image">
-                                </div>
+                                <div><?= $avatar ?></div>
                             </td>
-                            <td>Fahim Mahmud</td>
-                            <td>451471</td>
-                            <td>123456789</td>
+                            <td><?= $name ?></td>
+                            <td><?= $roll ?></td>
+                            <td><?= $semester ?></td>
                             <td><a href="#" class="btn sm">View</a></td>
                         </tr>
             </main>
